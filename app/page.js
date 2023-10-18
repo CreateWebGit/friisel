@@ -10,7 +10,6 @@ export default function Home() {
       <p>Let's explore different ways to style Next.js apps</p>
       <style jsx>{`
         .container {
-          margin: 50px;
         }
         p {
           color: blue;
