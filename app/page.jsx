@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import HeroContainer from '../components/HeroContainer';
 import { Grid, Col, Row } from 'react-styled-flexboxgrid';
 import theme from '../styles/theme';
-import solutionIMG from '../images/index/Solutions_images.png';
+import solutionIMG from './../public/images/index/Solutions_images.png';
 //import myIcon from 'images/icons/dialogue.png';
 
 const URL = process.env.STRAPIBASEURL;
@@ -83,12 +83,14 @@ export default function Home({ data }) {
               xs={12}
               md={6}
             >
-              <Image
-                src={solutionIMG}
-                width={433}
-                height={535}
-                className='solutionImage'
-              />
+              <div className='solutionImageContainer'>
+                <Image
+                  src={solutionIMG}
+                  width={433}
+                  height={535}
+                  className='solutionImage'
+                />
+              </div>
             </Col>
           </Row>
         </Grid>
@@ -194,10 +196,15 @@ export default function Home({ data }) {
           }
         }
 
-        .solutionImage {
+        .solutionImageContainer {
+          padding-top: 20px;
+          display: flex;
+          justify-content: center;
+        }
+        :global(.solutionImage) {
           @include mobile {
             margin: 0 auto;
-            width: 250px;
+            width: 350px !important;
           }
         }
 
