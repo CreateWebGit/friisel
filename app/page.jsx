@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import HeroContainer from '../components/HeroContainer';
 import { Grid, Col, Row } from 'react-styled-flexboxgrid';
 import theme from '../styles/theme';
+import solutionIMG from '../images/index/Solutions_images.png';
 //import myIcon from 'images/icons/dialogue.png';
 
 const URL = process.env.STRAPIBASEURL;
@@ -83,7 +84,7 @@ export default function Home({ data }) {
               md={6}
             >
               <Image
-                src='/../images/index/Solutions_images.png'
+                src={solutionIMG}
                 width={433}
                 height={535}
                 className='solutionImage'
@@ -196,6 +197,7 @@ export default function Home({ data }) {
         .solutionImage {
           @include mobile {
             margin: 0 auto;
+            width: 250px;
           }
         }
 
