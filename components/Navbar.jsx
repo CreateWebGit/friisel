@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose, AiFillInstagram } from 'react-icons/ai';
 import {
@@ -61,14 +61,138 @@ export const navLinks = [
   },
 ];
 
-const Navbar = () => {
-  const [isNav, setIsNav] = useState(false);
+export const Navigation = () => {
   const [isSublinks, setSublinks] = useState(false);
+  const pathname = usePathname();
+  return (
+    <>
+      {navLinks.map(link => {
+        return (
+          <>
+            {link.sublinks ? (
+              <div
+                className='withSubLinksConatner'
+                onMouseEnter={() => setSublinks(true)}
+                onMouseLeave={() => setSublinks(false)}
+              >
+                <div className='links'>
+                  <li>
+                    <Link
+                      legacyBehavior
+                      key={link.id}
+                      href={link.path}
+                    >
+                      <a>{link.name}</a>
+                    </Link>
+                  </li>
+                  <MdKeyboardArrowDown color='#fff' />
+                </div>
+                {isSublinks ? (
+                  <div className='subLinksConatner'>
+                    {link.sublinks.map(sublink => {
+                      return (
+                        <li>
+                          <Link
+                            legacyBehavior
+                            key={sublink.id}
+                            href={sublink.path}
+                          >
+                            <a>{sublink.name}</a>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  ''
+                )}
+              </div>
+            ) : (
+              <div className='links'>
+                <li>
+                  <Link
+                    legacyBehavior
+                    key={link.id}
+                    href={link.path}
+                  >
+                    <a>{link.name}</a>
+                  </Link>
+                </li>
+              </div>
+            )}
+            <style jsx>{`
+              $primary-color: #f49a11;
+              $mobile: 850px;
+
+              //prettier-ignore
+              @mixin mobile {
+                @media (max-width: $mobile) {
+                  @content
+                }
+              }
+
+              .withSubLinksConatner {
+                position: relative;
+              }
+              .links {
+                display: flex;
+                alignitems: center;
+                li {
+                  display: flex;
+                  alignitems: center;
+                  position: relative;
+                  margin-left: 20px;
+                  font-size: 18px;
+                  curser: pointer;
+                  a {
+                    text-decoration: none;
+                    color: #fff;
+                  }
+                  a:before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: #f49a11;
+                    transform: ${pathname === link.path
+                      ? 'scaleY(1)'
+                      : 'scaleY(0)'};
+                    transition: transform 0.3s ease;
+                  }
+                  a:hover:before {
+                    transform: scaleX(1);
+                  }
+                }
+              }
+              .subLinksConatner {
+                position: absolute;
+                left: 20px;
+                li {
+                  position: relative;
+                  margin: 5px 0;
+                  fontsize: 18px;
+                  curser: pointer;
+                }
+                a {
+                  text-decoration: none;
+                  color: #fff;
+                }
+              }
+            `}</style>
+          </>
+        );
+      })}
+    </>
+  );
+};
+
+const Navbar = ({ mypath }) => {
+  const [isNav, setIsNav] = useState(false);
+
   const [isActivelinks, setActivelinks] = useState('');
   const [sticky, setSticky] = useState(true);
-
-  const router = useRouter();
-  const path = router.path;
 
   const handleNav = () => {
     setIsNav(!isNav);
@@ -84,21 +208,21 @@ const Navbar = () => {
                   className='contactIcon'
                   color='#F49A11'
                 />
-                info@friisel.se
+                <span> info@friisel.se </span>
               </div>
               <div className='contactItem'>
                 <MdOutlineAccessTime
                   className='contactIcon'
                   color='#F49A11'
                 />
-                Måndag - Fredag 08.00 16.00
+                <span> Måndag - Fredag 08.00 16.00 </span>
               </div>
               <div className='contactItem'>
                 <BsTelephoneFill
                   className='contactIcon'
                   color='#F49A11'
                 />
-                123-456-789
+                <span> 123-456-789 </span>
               </div>
             </div>
             <div className='socialContent'>
@@ -122,78 +246,8 @@ const Navbar = () => {
                 />
               </div>
             </Link>
-            <ul className='ul'>
-              {navLinks.map(link => {
-                return (
-                  <>
-                    {link.name === 'SERVICE' ? (
-                      <div
-                        className='withSubLinksConatner'
-                        onMouseEnter={() => setSublinks(true)}
-                        onMouseLeave={() => setSublinks(false)}
-                      >
-                        <div
-                          className={
-                            router.pathname === link.path
-                              ? 'sublinkActive'
-                              : 'sublink'
-                          }
-                        >
-                          <li>
-                            <Link
-                              legacyBehavior
-                              key={link.id}
-                              href={link.path}
-                              onClick={() => setSublinks(link.path)}
-                            >
-                              <a>{link.name}</a>
-                            </Link>
-                          </li>
-                          <MdKeyboardArrowDown color='#fff' />
-                        </div>
-                        {isSublinks ? (
-                          <div className='subLinksConatner'>
-                            {link.sublinks.map(sublink => {
-                              return (
-                                <div className='subLinkItem'>
-                                  <Link
-                                    legacyBehavior
-                                    key={sublink.id}
-                                    href={sublink.path}
-                                  >
-                                    <a>{sublink.name}</a>
-                                  </Link>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        ) : (
-                          ''
-                        )}
-                      </div>
-                    ) : (
-                      <div
-                        className={
-                          router.pathname === link.path
-                            ? 'linksActive'
-                            : 'links'
-                        }
-                      >
-                        <li>
-                          <Link
-                            legacyBehavior
-                            key={link.id}
-                            href={link.path}
-                            onClick={() => setSublinks(link.path)}
-                          >
-                            <a>{link.name}</a>
-                          </Link>
-                        </li>
-                      </div>
-                    )}
-                  </>
-                );
-              })}
+            <ul>
+              <Navigation />
             </ul>
             <div
               onClick={handleNav}
@@ -203,33 +257,32 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
         <div className={isNav ? 'navMobileActive' : ''}>
           <div className='navMobileContainer'>
-            <div>
-              <div className='navMobileHead'>
-                {/* <Image src={logo} width="80" height="80" alt="create web" /> */}
-                <div
-                  onClick={handleNav}
-                  className='navCloseIcon'
-                >
-                  <AiOutlineClose />
-                </div>
-              </div>
-              <div>
-                <p>Låt oss bygga något legendariskt tillsammans</p>
+            <div className='navMobileHead'>
+              {/* <Image src={logo} width="80" height="80" alt="create web" /> */}
+
+              <div
+                onClick={handleNav}
+                className='navCloseIcon'
+              >
+                <AiOutlineClose />
               </div>
             </div>
+
             <div className='navMobileBody'>
               <ul>
                 {navLinks.map(link => {
                   return (
-                    <Link
-                      key={link.id}
-                      href={link.path}
-                    >
-                      <li key={link.id}>{link.name}</li>
-                    </Link>
+                    <li>
+                      <Link
+                        legacyBehavior
+                        key={link.id}
+                        href={link.path}
+                      >
+                        <a>{link.name}</a>
+                      </Link>
+                    </li>
                   );
                 })}
               </ul>
@@ -282,11 +335,15 @@ const Navbar = () => {
 
           .topContent {
             height: 50px;
-            width: 1200px;
+            max-width: 1200px;
+            width: 100%;
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include mobile {
+              display: none;
+            }
 
             .contactContent {
               display: flex;
@@ -299,6 +356,10 @@ const Navbar = () => {
 
                 .contactIcon {
                   margin-right: 10px;
+                }
+
+                span {
+                  margin-left: 10px;
                 }
               }
             }
@@ -314,9 +375,6 @@ const Navbar = () => {
         .navWraper {
           width: 100%;
           // borderBottom: 1px solid rgba(255,255,255,0.9);
-          top: 0px;
-          right: 0px;
-          left: 0px;
 
           .navContent {
             display: flex;
@@ -324,15 +382,19 @@ const Navbar = () => {
             align-items: center;
             height: 100px;
             margin: auto;
-            width: 1200px;
+            max-width: 1200px;
+            width: 100%;
+            @include mobile {
+              width: 100%;
+            }
 
             //transition: "all 0.3s ease-in-out",
 
             .logoContainer {
+              margin-left: 20px;
               text-align: center;
               cursor: pointer;
             }
-
             ul {
               display: flex;
               cursor: pointer;
@@ -340,33 +402,99 @@ const Navbar = () => {
               @include mobile {
                 display: none;
               }
+            }
+
+            .navOpenIcon {
+              display: none;
+              @include mobile {
+                margin-right: 20px;
+                display: block;
+                z-index: 1000;
+              }
+            }
+          }
+        }
+
+        /***********************/
+        /*** Nav Mobile *******/
+        /**********************/
+
+        .navMobileActive {
+          display: none;
+          @include mobile {
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+          }
+        }
+
+        .navMobileContainer {
+          position: fixed;
+          height: 100vh;
+          left: ${isNav ? '0px' : '-100%'};
+          top: 0;
+          background-color: #ecf0f3;
+          padding: 0px;
+          transition: all 0.5s ease-in;
+          z-index: 999;
+          @include mobile {
+            width: 75%;
+          }
+
+          .navMobileHead {
+            position: relative;
+
+            width: 100%;
+            height: 150px;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #000;
+
+            .navCloseIcon {
+              position: absolute;
+              top: 5px;
+              right: 5px;
+              border: 1px solid #000;
+
+              padding: 6px;
+              border-radius: 100%;
+              cursor: pointer;
+              background-color: #fff;
+              box-shadow: 0 10px 15px -3px rgb(156 175 175 / 0.5),
+                0 4px 6px -4px rgb(156 175 175 / 0.5);
+            }
+          }
+
+          .navMobileBody {
+            padding: 0 8px;
+            display: flex;
+            flex-direction: column;
+
+            ul {
+              text-transform: uppercase;
+
               li {
-                display: flex;
-                alignitems: center;
-                position: relative;
-                margin-left: 20px;
-                font-size: 18px;
-                curser: pointer;
+                padding: 16px 0;
+                cursor: pointer;
+
                 a {
                   text-decoration: none;
-                  color: #333;
                 }
-                a:before {
-                  content: '';
-                  position: absolute;
-                  width: 100%;
-                  height: 2px;
-                  bottom: 0;
-                  left: 0;
-                  background-color: #f49a11;
-                  transform: ${isActivelinks === router.pathname
-                    ? 'scaleX(1)'
-                    : 'scaleY(0)'};
-                  transition: transform 0.3s ease;
-                }
-                a:hover:before {
-                  transform: scaleX(1);
-                }
+              }
+            }
+
+            .navMobileSlogan {
+              padding-top: 160px;
+              P {
+                text-transform: uppercase;
+                color: #5651e5;
+                letter-spacing: 1px;
+                text-align: center;
               }
             }
           }

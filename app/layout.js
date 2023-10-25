@@ -1,5 +1,7 @@
 'use client';
 import globalStyles from '../styles/reset.js';
+import Footer from '../components/Footer';
+
 //import { Inter } from 'next/font/google';
 
 //const inter = Inter({ subsets: ['latin'] });
@@ -16,6 +18,7 @@ const RootLayout = ({ children }) => {
     <html lang='en'>
       <body>
         {children}
+        <Footer />
         <style
           jsx
           global
