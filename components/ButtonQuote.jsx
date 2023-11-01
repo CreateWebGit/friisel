@@ -27,7 +27,7 @@ const ButtonQuote = ({ children, onClick, background }) => {
           cursor: pointer;
         }
 
-        .icon {
+        :global(.icon) {
           margin-left: 10px;
         }
       `}</style>

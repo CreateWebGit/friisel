@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import theme from '../styles/theme.js';
 import { Grid, Col, Row } from 'react-styled-flexboxgrid';
 import { AiOutlineMenu, AiOutlineClose, AiFillInstagram } from 'react-icons/ai';
@@ -13,6 +14,51 @@ import ButtonQuote from './ButtonQuote';
 import logo from './../public/images/Friis_logo.png';
 import topBG from './../public/images/footerIMG.png';
 import { ThemeProvider } from 'styled-components';
+
+export const navLinks = [
+  {
+    id: 0,
+    name: 'HEM',
+    path: '/',
+  },
+  {
+    id: 1,
+    name: 'OM OSS',
+    path: '/om',
+  },
+  {
+    id: 2,
+    name: 'SERVICE',
+    path: '/service',
+    sublinks: [
+      {
+        id: 1,
+        name: 'Entreprenörskap',
+        path: '/service/entreprenor',
+      },
+      {
+        id: 2,
+        name: 'Tjänster',
+        path: '/service/tjanster',
+      },
+      {
+        id: 3,
+        name: 'Elspåp',
+        path: '/service/elskap',
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'JOBB',
+    path: '/jobb',
+  },
+  {
+    id: 4,
+    name: 'KONTAKTA',
+    path: '/kontakta',
+  },
+];
 
 const mytheme = {
   flexboxgrid: {
@@ -96,13 +142,35 @@ const Footer = () => {
                 xs={12}
                 md={4}
               >
-                Meny
+                <div className='linkWrapper'>
+                  <h3>Meny</h3>
+                  <ul>
+                    {navLinks.map(link => {
+                      return (
+                        <li>
+                          <Link
+                            legacyBehavior
+                            key={link.id}
+                            href={link.path}
+                          >
+                            <a>{link.name}</a>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </Col>
               <Col
                 xs={12}
                 md={4}
               >
-                Service
+                <div className='serviceWrapper'>
+                  <h3>Service</h3>
+                  <p>Entreprenörskap</p>
+                  <p>EL Service</p>
+                  <p>Uthyrning av elcentral</p>
+                </div>
               </Col>
             </Row>
             <hr />
@@ -131,6 +199,12 @@ const Footer = () => {
         </ThemeProvider>
       </div>
       <style jsx>{`
+        //prettier-ignore
+        @mixin mobile {
+          @media (max-width: 850px) {
+            @content
+          }
+        }
         .topWrapper {
           width: 100%;
           height: 300px;
@@ -157,6 +231,10 @@ const Footer = () => {
             height: 100%;
             background-color: ${theme.colors.primaryColor};
           }
+
+          @include mobile {
+            display: none;
+          }
         }
         .container {
           padding: 50px 0;
@@ -164,6 +242,15 @@ const Footer = () => {
           p {
             width: 220px;
             margin: 15px 0;
+          }
+
+          h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+          }
+
+          @include mobile {
+            padding: 50px 50px;
           }
         }
 
@@ -181,10 +268,45 @@ const Footer = () => {
               margin-left: 10px;
             }
           }
+
+          @include mobile {
+            margin-bottom: 50px;
+          }
+        }
+
+        .linkWrapper {
+          ul {
+            text-transform: uppercase;
+
+            li {
+              padding: 6px 0;
+              cursor: pointer;
+
+              a {
+                text-decoration: none;
+              }
+            }
+          }
+
+          @include mobile {
+            margin-bottom: 50px;
+          }
+        }
+
+        .serviceWrapper {
+          @include mobile {
+            margin-bottom: 50px;
+          }
         }
 
         .rightWrapper {
           margin: 0px !important;
+
+          @include mobile {
+            text-align: center !important;
+            margin: auto !important;
+            margin-bottom: 20px !important;
+          }
         }
 
         .policyWrapper {
@@ -193,6 +315,10 @@ const Footer = () => {
 
           .policyItems {
             margin: 0 5px;
+          }
+
+          @include mobile {
+            justify-content: center;
           }
         }
       `}</style>

@@ -1,6 +1,12 @@
 import React from 'react';
 
-const HeroContainer = ({ children, backgroundUrl, placement }) => {
+const HeroContainer = ({
+  children,
+  backgroundUrl,
+  placement,
+  filter,
+  height,
+}) => {
   return (
     <>
       <div className='container'>
@@ -9,13 +15,16 @@ const HeroContainer = ({ children, backgroundUrl, placement }) => {
       <style jsx>{`
         .filter {
           width: 100%;
-          height: 80vh;
+          display: flex;
+          align-items: center;
 
-          background-color: rgba(0, 0, 0, 0.3);
+          height: ${height};
+
+          background-color: ${filter};
           z-index: 999;
         }
         .container {
-          height: 80vh;
+          height: ${height};
           background: url(${backgroundUrl}) no-repeat ${placement} center;
           background-size: cover;
           z-index: 99;

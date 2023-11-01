@@ -15,23 +15,25 @@ import { FaLinkedinIn } from 'react-icons/fa';
 //import Social from '../Social';
 //import Container from '../Container';
 import logo from './../public/images/Friis_logo.png';
+import ButtonQuote from './ButtonQuote';
+import theme from '../styles/theme';
 
 export const navLinks = [
   {
     id: 0,
-    name: 'HEM',
+    name: 'Hem',
     path: '/',
   },
   {
     id: 1,
-    name: 'OM OSS',
+    name: 'Om oss',
     path: '/om',
   },
   {
     id: 2,
-    name: 'SERVICE',
+    name: 'Service',
     path: '/service',
-    sublinks: [
+    sublinks1: [
       {
         id: 1,
         name: 'Entreprenörskap',
@@ -51,62 +53,120 @@ export const navLinks = [
   },
   {
     id: 3,
-    name: 'JOBB',
+    name: 'Jobb',
     path: '/jobb',
   },
   {
     id: 4,
-    name: 'KONTAKTA',
+    name: 'Kontakta',
     path: '/kontakta',
+    sublinks2: [
+      {
+        id: 1,
+        name: 'Offert',
+        path: '/kontakta/offert',
+      },
+    ],
   },
 ];
 
 export const Navigation = () => {
-  const [isSublinks, setSublinks] = useState(false);
+  const [isSublinks, setSublinks] = useState('');
   const pathname = usePathname();
+
   return (
     <>
       {navLinks.map(link => {
         return (
           <>
-            {link.sublinks ? (
-              <div
-                className='withSubLinksConatner'
-                onMouseEnter={() => setSublinks(true)}
-                onMouseLeave={() => setSublinks(false)}
-              >
-                <div className='links'>
-                  <li>
-                    <Link
-                      legacyBehavior
-                      key={link.id}
-                      href={link.path}
-                    >
-                      <a>{link.name}</a>
-                    </Link>
-                  </li>
-                  <MdKeyboardArrowDown color='#fff' />
-                </div>
-                {isSublinks ? (
-                  <div className='subLinksConatner'>
-                    {link.sublinks.map(sublink => {
-                      return (
-                        <li>
-                          <Link
-                            legacyBehavior
-                            key={sublink.id}
-                            href={sublink.path}
-                          >
-                            <a>{sublink.name}</a>
-                          </Link>
-                        </li>
-                      );
-                    })}
+            {link.sublinks1 || link.sublinks2 ? (
+              <>
+                {link.sublinks1 ? (
+                  <div
+                    className='withSubLinksConatner'
+                    onMouseEnter={() => setSublinks('sublinks1')}
+                    onMouseLeave={() => setSublinks('')}
+                  >
+                    <div className='links'>
+                      <li>
+                        <Link
+                          legacyBehavior
+                          key={link.id}
+                          href={link.path}
+                        >
+                          <a>{link.name}</a>
+                        </Link>
+                      </li>
+                      <MdKeyboardArrowDown color='#fff' />
+                    </div>
+                    {isSublinks === 'sublinks1' ? (
+                      <div className='subLinksConatner'>
+                        {link.sublinks1.map(sublink => {
+                          return (
+                            <>
+                              <li>
+                                <Link
+                                  legacyBehavior
+                                  key={sublink.id}
+                                  href={sublink.path}
+                                >
+                                  <a>{sublink.name}</a>
+                                </Link>
+                              </li>
+                              {/*<div className='subLinksSplitter'></div>*/}
+                            </>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 ) : (
                   ''
                 )}
-              </div>
+                {link.sublinks2 ? (
+                  <div
+                    className='withSubLinksConatner'
+                    onMouseEnter={() => setSublinks('sublinks2')}
+                    onMouseLeave={() => setSublinks('')}
+                  >
+                    <div className='links'>
+                      <li>
+                        <Link
+                          legacyBehavior
+                          key={link.id}
+                          href={link.path}
+                        >
+                          <a>{link.name}</a>
+                        </Link>
+                      </li>
+                      <MdKeyboardArrowDown color='#fff' />
+                    </div>
+                    {isSublinks === 'sublinks2' ? (
+                      <div className='subLinksConatner'>
+                        {link.sublinks2.map(sublink => {
+                          return (
+                            <li>
+                              <Link
+                                legacyBehavior
+                                key={sublink.id}
+                                href={sublink.path}
+                              >
+                                <a>{sublink.name}</a>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                ) : (
+                  ''
+                )}
+              </>
             ) : (
               <div className='links'>
                 <li>
@@ -120,6 +180,7 @@ export const Navigation = () => {
                 </li>
               </div>
             )}
+
             <style jsx>{`
               $primary-color: #f49a11;
               $mobile: 850px;
@@ -153,7 +214,8 @@ export const Navigation = () => {
                     position: absolute;
                     width: 100%;
                     height: 2px;
-                    bottom: 0;
+
+                    bottom: -5px;
                     left: 0;
                     background-color: #f49a11;
                     transform: ${pathname === link.path
@@ -169,15 +231,27 @@ export const Navigation = () => {
               .subLinksConatner {
                 position: absolute;
                 left: 20px;
+                padding-top: 10px;
                 li {
                   position: relative;
-                  margin: 5px 0;
+                  margin: 0;
+                  padding: 10px 15px;
                   fontsize: 18px;
                   curser: pointer;
+                  background-color: #fff;
+                  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                }
+                li:hover {
+                  background-color: ${theme.colors.primaryColor};
                 }
                 a {
                   text-decoration: none;
-                  color: #fff;
+                  color: #000;
+                }
+
+                .subLinksSplitter {
+                  height: 1px;
+                  width: 100%;
                 }
               }
             `}</style>
@@ -189,10 +263,20 @@ export const Navigation = () => {
 };
 
 const Navbar = ({ mypath }) => {
+  const [clientWindowHeight, setClientWindowHeight] = useState('');
   const [isNav, setIsNav] = useState(false);
 
   const [isActivelinks, setActivelinks] = useState('');
   const [sticky, setSticky] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  const handleScroll = () => {
+    setClientWindowHeight(window.scrollY);
+  };
 
   const handleNav = () => {
     setIsNav(!isNav);
@@ -246,21 +330,40 @@ const Navbar = ({ mypath }) => {
                 />
               </div>
             </Link>
-            <ul>
-              <Navigation />
-            </ul>
+            <div className='linksWrapper'>
+              <ul>
+                <Navigation />
+              </ul>
+              <div className='linksSplitterWrapper'>
+                <div className='linksSplitter'></div>
+              </div>
+              <div className='buttonQuoteContainer'>
+                <ButtonQuote background={theme.colors.primaryColor}>
+                  Begär offert
+                </ButtonQuote>
+              </div>
+            </div>
             <div
               onClick={handleNav}
               className='navOpenIcon'
             >
-              <AiOutlineMenu size={25} />
+              <AiOutlineMenu
+                size={25}
+                color='#fff'
+              />
             </div>
           </div>
         </div>
         <div className={isNav ? 'navMobileActive' : ''}>
           <div className='navMobileContainer'>
             <div className='navMobileHead'>
-              {/* <Image src={logo} width="80" height="80" alt="create web" /> */}
+              <div className='logoContainerMobile'>
+                <Image
+                  className='logo'
+                  src={logo}
+                  width={120}
+                />
+              </div>
 
               <div
                 onClick={handleNav}
@@ -286,9 +389,7 @@ const Navbar = ({ mypath }) => {
                   );
                 })}
               </ul>
-              <div className='navMobileSlogan'>
-                <p>Låt oss konekta</p>
-              </div>
+
               {/*
             <div className='navMobileSocialContainer'>
               <a href='#'>
@@ -309,6 +410,9 @@ const Navbar = ({ mypath }) => {
             </div>
             */}
             </div>
+            <div className='navMobileFooter'>
+              <p>Experter inom Elteknik i Stockholm</p>
+            </div>
           </div>
         </div>
       </div>
@@ -326,13 +430,14 @@ const Navbar = ({ mypath }) => {
 
         .container {
           width: 100%;
-          position: relative;
+          position: fixed;
           top: 0;
           z-index: 1000;
         }
         .topWraper {
           background-color: rgba(0, 0, 0, 0.4);
 
+          display: ${clientWindowHeight > 30 ? 'none' : 'block'};
           .topContent {
             height: 50px;
             max-width: 1200px;
@@ -374,8 +479,11 @@ const Navbar = ({ mypath }) => {
 
         .navWraper {
           width: 100%;
+          background-color: ${clientWindowHeight > 30
+            ? 'rgba(0, 0, 0, 0.7)'
+            : ''};
+          transition: all 0.5s ease-in-out;
           // borderBottom: 1px solid rgba(255,255,255,0.9);
-
           .navContent {
             display: flex;
             justify-content: space-between;
@@ -394,13 +502,35 @@ const Navbar = ({ mypath }) => {
               margin-left: 20px;
               text-align: center;
               cursor: pointer;
+              @include mobile {
+                margin-left: 40px;
+              }
             }
-            ul {
+
+            .linksWrapper {
               display: flex;
-              cursor: pointer;
-              liststyletype: none;
+              justify-content: space-between;
+              align-items: center;
+              color: #fff;
               @include mobile {
                 display: none;
+              }
+
+              .linksSplitterWrapper {
+                margin: 0 20px;
+                font-size: 24px;
+
+                .linksSplitter {
+                  width: 1px;
+                  height: 25px;
+                  background-color: rgba(255, 255, 255, 0.5);
+                }
+              }
+
+              ul {
+                display: flex;
+                cursor: pointer;
+                liststyletype: none;
               }
             }
 
@@ -443,23 +573,20 @@ const Navbar = ({ mypath }) => {
           transition: all 0.5s ease-in;
           z-index: 999;
           @include mobile {
-            width: 75%;
+            width: 55%;
           }
 
           .navMobileHead {
             position: relative;
-
             width: 100%;
             height: 150px;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #000;
 
             .navCloseIcon {
               position: absolute;
               top: 5px;
               right: 5px;
-              border: 1px solid #000;
 
               padding: 6px;
               border-radius: 100%;
@@ -467,6 +594,12 @@ const Navbar = ({ mypath }) => {
               background-color: #fff;
               box-shadow: 0 10px 15px -3px rgb(156 175 175 / 0.5),
                 0 4px 6px -4px rgb(156 175 175 / 0.5);
+            }
+
+            .logoContainerMobile {
+              padding-top: 20px;
+              display: flex;
+              justify-content: center;
             }
           }
 
@@ -488,14 +621,18 @@ const Navbar = ({ mypath }) => {
               }
             }
 
-            .navMobileSlogan {
-              padding-top: 160px;
-              P {
-                text-transform: uppercase;
-                color: #5651e5;
-                letter-spacing: 1px;
-                text-align: center;
-              }
+            @include mobile {
+              padding-left: 35px;
+            }
+          }
+
+          .navMobileFooter {
+            padding-top: 160px;
+            P {
+              text-transform: uppercase;
+              color: #5651e5;
+              letter-spacing: 1px;
+              text-align: center;
             }
           }
         }
