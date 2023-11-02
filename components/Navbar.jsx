@@ -384,7 +384,7 @@ export const NavigationMobile = () => {
                   position: relative;
                   margin: 8px 6px;
 
-                  font-size: 18px;
+                  font-size: 24px;
                   curser: pointer;
                   a {
                     text-decoration: none;
@@ -409,7 +409,7 @@ export const NavigationMobile = () => {
               .offertLink {
                 margin: 8px 6px;
 
-                font-size: 18px;
+                font-size: 24px;
                 curser: pointer;
                 a {
                   text-decoration: none;
@@ -438,11 +438,8 @@ export const NavigationMobile = () => {
                   position: relative;
                   margin: 0;
                   padding: 10px 15px;
-                  fontsize: 18px;
+                  fontsize: 20px;
                   curser: pointer;
-                }
-                li:hover {
-                  background-color: ${theme.colors.primaryColor};
                 }
                 a {
                   text-decoration: none;
@@ -792,11 +789,11 @@ const Navbar = ({ mypath }) => {
           }
 
           .navMobileBody {
-            padding: 0 8px;
             display: flex;
             flex-direction: column;
 
             ul {
+              margin: auto;
               text-transform: uppercase;
 
               li {
