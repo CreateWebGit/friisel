@@ -16,6 +16,7 @@ import chartIcon from './../../public/images/about/chartIcon.png';
 import shieldIcon from './../../public/images/about/shieldIcon.png';
 import userIcon from './../../public/images/about/userIcon.png';
 import workIcon from './../../public/images/about/workIcon.png';
+import experience from './../../public/images/about/experience.png';
 
 const mytheme = {
   flexboxgrid: {
@@ -198,6 +199,40 @@ export default function Om() {
             </Row>
           </Grid>
         </section>
+        <section className='experienceContainer'>
+          <ThemeProvider theme={mytheme}>
+            <Grid fluid>
+              <Row>
+                <Col
+                  xs={12}
+                  md={6}
+                >
+                  <Image src={experience} />
+                </Col>
+                <Col
+                  xs={12}
+                  md={6}
+                >
+                  <div className='experienceTextWraper'>
+                    <Title text={'LÅNG ERFARENHET AV ENTREPRENÖRSKAP'} />
+
+                    <h2>Solutions for Commercial & Residential Buildings</h2>
+                    <p>
+                      At Friis Eli, we understand that a reliable electrical
+                      system is the lifeblood of your business. Whether you're a
+                      big corporation or a small enterprise, our dedicated team
+                      of expert electricians is here to ensure your operations
+                      run seamlessly. Discover the spark that sets us apart!
+                    </p>
+                    <ButtonQuote background={theme.colors.primaryColor}>
+                      Begär offert
+                    </ButtonQuote>
+                  </div>
+                </Col>
+              </Row>
+            </Grid>
+          </ThemeProvider>
+        </section>
       </div>
 
       <style jsx>{`
@@ -279,6 +314,38 @@ export default function Om() {
             justify-content: center;
             background-color: #fce5c4;
             border-radius: 5px;
+          }
+        }
+
+        .experienceContainer {
+          margin: 50px 0;
+          padding: 50px 0;
+
+          .experienceTextWraper {
+            height: 100%;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            h2 {
+              font-weight: bold;
+              font-size: 38px;
+              margin: 15px 0;
+
+              @include mobile {
+                text-align: center;
+              }
+            }
+
+            p {
+              color: #000000;
+              margin-bottom: 25px;
+              @include mobile {
+                text-align: center;
+              }
+            }
           }
         }
       `}</style>

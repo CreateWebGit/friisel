@@ -262,6 +262,198 @@ export const Navigation = () => {
   );
 };
 
+export const NavigationMobile = () => {
+  const [isSublinks, setSublinks] = useState('');
+  const pathname = usePathname();
+
+  return (
+    <>
+      {navLinks.map(link => {
+        return (
+          <>
+            {link.sublinks1 || link.sublinks2 ? (
+              <>
+                {link.sublinks1 ? (
+                  <div
+                    className='withSubLinksConatner'
+                    onMouseEnter={() => setSublinks('sublinks1')}
+                    onMouseLeave={() => setSublinks('')}
+                  >
+                    <div className='links'>
+                      <li>
+                        <Link
+                          legacyBehavior
+                          key={link.id}
+                          href={link.path}
+                        >
+                          <a>{link.name}</a>
+                        </Link>
+                      </li>
+                      <MdKeyboardArrowDown color='#fff' />
+                    </div>
+                    {isSublinks === 'sublinks1' ? (
+                      <div className='subLinksConatner'>
+                        {link.sublinks1.map(sublink => {
+                          return (
+                            <>
+                              <li>
+                                <Link
+                                  legacyBehavior
+                                  key={sublink.id}
+                                  href={sublink.path}
+                                >
+                                  <a>{sublink.name}</a>
+                                </Link>
+                              </li>
+                              {/*<div className='subLinksSplitter'></div>*/}
+                            </>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                ) : (
+                  ''
+                )}
+                {link.sublinks2 ? (
+                  <div
+                    className='withSubLinksConatner'
+                    onMouseEnter={() => setSublinks('sublinks2')}
+                    onMouseLeave={() => setSublinks('')}
+                  >
+                    <div className='links'>
+                      <li>
+                        <Link
+                          legacyBehavior
+                          key={link.id}
+                          href={link.path}
+                        >
+                          <a>{link.name}</a>
+                        </Link>
+                      </li>
+                      <MdKeyboardArrowDown color='#fff' />
+                    </div>
+                    {isSublinks === 'sublinks2' ? (
+                      <div className='subLinksConatner'>
+                        {link.sublinks2.map(sublink => {
+                          return (
+                            <li>
+                              <Link
+                                legacyBehavior
+                                key={sublink.id}
+                                href={sublink.path}
+                              >
+                                <a>{sublink.name}</a>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                ) : (
+                  ''
+                )}
+              </>
+            ) : (
+              <div className='links'>
+                <li>
+                  <Link
+                    legacyBehavior
+                    key={link.id}
+                    href={link.path}
+                  >
+                    <a>{link.name}</a>
+                  </Link>
+                </li>
+              </div>
+            )}
+
+            <style jsx>{`
+              $primary-color: #f49a11;
+              $mobile: 850px;
+
+              //prettier-ignore
+              @mixin mobile {
+                @media (max-width: $mobile) {
+                  @content
+                }
+              }
+
+              .withSubLinksConatner {
+                position: relative;
+              }
+              .links {
+                display: flex;
+                alignitems: center;
+                li {
+                  display: flex;
+                  alignitems: center;
+                  position: relative;
+                  margin-left: 20px;
+                  font-size: 18px;
+                  curser: pointer;
+                  a {
+                    text-decoration: none;
+                    color: #333;
+                  }
+                  a:before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+
+                    bottom: -5px;
+                    left: 0;
+                    background-color: #f49a11;
+                    transform: ${pathname === link.path
+                      ? 'scaleY(1)'
+                      : 'scaleY(0)'};
+                    transition: transform 0.3s ease;
+                  }
+                  a:hover:before {
+                    transform: scaleX(1);
+                  }
+                }
+              }
+              .subLinksConatner {
+                position: relative;
+                left: 20px;
+                padding-top: 10px;
+                li {
+                  position: relative;
+                  margin: 0;
+                  padding: 10px 15px;
+                  fontsize: 18px;
+                  curser: pointer;
+                  background-color: #fff;
+                  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                }
+                li:hover {
+                  background-color: ${theme.colors.primaryColor};
+                }
+                a {
+                  text-decoration: none;
+                  color: #000;
+                }
+
+                .subLinksSplitter {
+                  height: 1px;
+                  width: 100%;
+                }
+              }
+            `}</style>
+          </>
+        );
+      })}
+    </>
+  );
+};
+
 const Navbar = ({ mypath }) => {
   const [clientWindowHeight, setClientWindowHeight] = useState('');
   const [isNav, setIsNav] = useState(false);
@@ -375,19 +567,7 @@ const Navbar = ({ mypath }) => {
 
             <div className='navMobileBody'>
               <ul>
-                {navLinks.map(link => {
-                  return (
-                    <li>
-                      <Link
-                        legacyBehavior
-                        key={link.id}
-                        href={link.path}
-                      >
-                        <a>{link.name}</a>
-                      </Link>
-                    </li>
-                  );
-                })}
+                <NavigationMobile />
               </ul>
 
               {/*
