@@ -289,7 +289,7 @@ export const NavigationMobile = () => {
                           <a>{link.name}</a>
                         </Link>
                       </li>
-                      <MdKeyboardArrowDown color='#fff' />
+                      +
                     </div>
                     {isSublinks === 'sublinks1' ? (
                       <div className='subLinksConatner'>
@@ -333,27 +333,15 @@ export const NavigationMobile = () => {
                           <a>{link.name}</a>
                         </Link>
                       </li>
-                      <MdKeyboardArrowDown color='#fff' />
                     </div>
-                    {isSublinks === 'sublinks2' ? (
-                      <div className='subLinksConatner'>
-                        {link.sublinks2.map(sublink => {
-                          return (
-                            <li>
-                              <Link
-                                legacyBehavior
-                                key={sublink.id}
-                                href={sublink.path}
-                              >
-                                <a>{sublink.name}</a>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      ''
-                    )}
+                    <div className='offertLink'>
+                      <Link
+                        legacyBehavior
+                        href={'/kontakta/offert'}
+                      >
+                        <a>Offert</a>
+                      </Link>
+                    </div>
                   </div>
                 ) : (
                   ''
@@ -389,12 +377,13 @@ export const NavigationMobile = () => {
               }
               .links {
                 display: flex;
-                alignitems: center;
+                align-items: center;
                 li {
                   display: flex;
                   alignitems: center;
                   position: relative;
-                  margin-left: 20px;
+                  margin: 8px 6px;
+
                   font-size: 18px;
                   curser: pointer;
                   a {
@@ -420,9 +409,33 @@ export const NavigationMobile = () => {
                   }
                 }
               }
+              .offertLink {
+                margin: 8px 6px;
+
+                font-size: 18px;
+                curser: pointer;
+                a {
+                  text-decoration: none;
+                  color: #333;
+                }
+                a:before {
+                  content: '';
+                  position: absolute;
+                  width: 100%;
+                  height: 2px;
+
+                  bottom: -5px;
+                  left: 0;
+                  background-color: #f49a11;
+                  transform: ${pathname === link.path
+                    ? 'scaleY(1)'
+                    : 'scaleY(0)'};
+                  transition: transform 0.3s ease;
+                }
+              }
               .subLinksConatner {
                 position: relative;
-                left: 20px;
+                left: 10px;
                 padding-top: 10px;
                 li {
                   position: relative;
@@ -430,7 +443,6 @@ export const NavigationMobile = () => {
                   padding: 10px 15px;
                   fontsize: 18px;
                   curser: pointer;
-                  background-color: #fff;
                   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
                 }
                 li:hover {
@@ -753,7 +765,7 @@ const Navbar = ({ mypath }) => {
           transition: all 0.5s ease-in;
           z-index: 999;
           @include mobile {
-            width: 55%;
+            width: 75%;
           }
 
           .navMobileHead {
