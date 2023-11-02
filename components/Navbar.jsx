@@ -289,7 +289,7 @@ export const NavigationMobile = () => {
                           <a>{link.name}</a>
                         </Link>
                       </li>
-                      +
+                      {isSublinks === 'sublinks1' ? '-' : '+'}
                     </div>
                     {isSublinks === 'sublinks1' ? (
                       <div className='subLinksConatner'>
@@ -404,9 +404,6 @@ export const NavigationMobile = () => {
                       : 'scaleY(0)'};
                     transition: transform 0.3s ease;
                   }
-                  a:hover:before {
-                    transform: scaleX(1);
-                  }
                 }
               }
               .offertLink {
@@ -435,7 +432,7 @@ export const NavigationMobile = () => {
               }
               .subLinksConatner {
                 position: relative;
-                left: 10px;
+                left: 5px;
                 padding-top: 10px;
                 li {
                   position: relative;
@@ -443,7 +440,6 @@ export const NavigationMobile = () => {
                   padding: 10px 15px;
                   fontsize: 18px;
                   curser: pointer;
-                  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
                 }
                 li:hover {
                   background-color: ${theme.colors.primaryColor};
