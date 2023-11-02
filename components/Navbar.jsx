@@ -293,22 +293,25 @@ export const NavigationMobile = () => {
                     </div>
                     {isSublinks === 'sublinks1' ? (
                       <div className='subLinksConatner'>
-                        {link.sublinks1.map(sublink => {
-                          return (
-                            <>
-                              <li>
-                                <Link
-                                  legacyBehavior
-                                  key={sublink.id}
-                                  href={sublink.path}
-                                >
-                                  <a>{sublink.name}</a>
-                                </Link>
-                              </li>
-                              {/*<div className='subLinksSplitter'></div>*/}
-                            </>
-                          );
-                        })}
+                        <ul className='ULsubLinks'>
+                          {link.sublinks1.map(sublink => {
+                            return (
+                              <>
+                                <li>
+                                  <Link
+                                    legacyBehavior
+                                    key={sublink.id}
+                                    href={sublink.path}
+                                  >
+                                    <a>{sublink.name}</a>
+                                  </Link>
+                                </li>
+
+                                {/*<div className='subLinksSplitter'></div>*/}
+                              </>
+                            );
+                          })}
+                        </ul>
                       </div>
                     ) : (
                       ''
@@ -432,23 +435,20 @@ export const NavigationMobile = () => {
               }
               .subLinksConatner {
                 position: relative;
-                left: 5px;
                 padding-top: 10px;
+                .ULsubLinks {
+                  margin-left: 20px;
+                }
                 li {
                   position: relative;
-                  margin: 0;
-                  padding: 10px 15px;
+                  margin: 0px !important;
+                  padding: 10px 0px 10px 0px;
                   fontsize: 20px;
                   curser: pointer;
                 }
                 a {
                   text-decoration: none;
                   color: #000;
-                }
-
-                .subLinksSplitter {
-                  height: 1px;
-                  width: 100%;
                 }
               }
             `}</style>
@@ -782,18 +782,15 @@ const Navbar = ({ mypath }) => {
             }
 
             .logoContainerMobile {
-              padding-top: 20px;
-              display: flex;
-              justify-content: center;
+              padding: 20px 0px 0px 100px;
             }
           }
 
           .navMobileBody {
             display: flex;
             flex-direction: column;
-
+            margin-left: 100px;
             ul {
-              margin: auto;
               text-transform: uppercase;
 
               li {
@@ -804,10 +801,6 @@ const Navbar = ({ mypath }) => {
                   text-decoration: none;
                 }
               }
-            }
-
-            @include mobile {
-              padding-left: 35px;
             }
           }
 

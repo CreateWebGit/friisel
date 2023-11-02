@@ -55,7 +55,8 @@ export default function Om() {
       >
         <Navbar mypath={path} />
       </HeroContainer>
-      <div className='main'>
+
+      <section className='solutionContainer'>
         <ThemeProvider theme={mytheme}>
           <Grid>
             <Row>
@@ -64,7 +65,10 @@ export default function Om() {
                 md={6}
               >
                 <div className='solutionTextWraper'>
-                  <Title text={'OM OSS'} />
+                  <Title
+                    className='solutionTitle'
+                    text={'OM OSS'}
+                  />
 
                   <h2>Solutions for Commercial & Residential Buildings</h2>
                   <p>
@@ -88,7 +92,7 @@ export default function Om() {
                 </div>
               </Col>
             </Row>
-            <Row>
+            <Row className='solutionColumnReverce'>
               <Col
                 xs={12}
                 md={6}
@@ -102,7 +106,10 @@ export default function Om() {
                 md={6}
               >
                 <div className='solutionTextWraper'>
-                  <Title text={'OM OSS'} />
+                  <Title
+                    className='solutionTitle'
+                    text={'OM OSS'}
+                  />
 
                   <h2>Solutions for Commercial & Residential Buildings</h2>
                   <p>
@@ -120,120 +127,124 @@ export default function Om() {
             </Row>
           </Grid>
         </ThemeProvider>
-        <section className='benefitContainer'>
-          <Grid>
-            <Row>
-              <Col
-                xs={12}
-                md={4}
-              >
-                <Title text={'FÖRDELARNA'} />
-                <h2 className='benefitsIntro'>
-                  I decennier har vi tillhandahållit tjänster till små och stora
-                  företag.
-                </h2>
-              </Col>
-              <Col
-                xs={12}
-                md={8}
-              >
-                <Row>
-                  <Col
-                    xs={12}
-                    md={6}
-                  >
-                    <div className='benefitIconContainer'>
-                      <Image src={workIcon} />
-                    </div>
-                    <h2>A wide range of services</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur. Magna id lobortis
-                      sagittis massa morbi id hac id dui. Nulla a suspendisse
-                      consectetur dui pharetra tellus diam ultrices dolor.
-                    </p>
-                  </Col>
-                  <Col
-                    xs={12}
-                    md={6}
-                  >
-                    <div className='benefitIconContainer'>
-                      <Image src={shieldIcon} />
-                    </div>
-                    <h2>A wide range of services</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur. Magna id lobortis
-                      sagittis massa morbi id hac id dui. Nulla a suspendisse
-                      consectetur dui pharetra tellus diam ultrices dolor.
-                    </p>
-                  </Col>
-                  <Col
-                    xs={12}
-                    md={6}
-                  >
-                    <div className='benefitIconContainer'>
-                      <Image src={userIcon} />
-                    </div>
-                    <h2>A wide range of services</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur. Magna id lobortis
-                      sagittis massa morbi id hac id dui. Nulla a suspendisse
-                      consectetur dui pharetra tellus diam ultrices dolor.
-                    </p>
-                  </Col>
-                  <Col
-                    xs={12}
-                    md={6}
-                  >
-                    <div className='benefitIconContainer'>
-                      <Image src={chartIcon} />
-                    </div>
-                    <h2>A wide range of services</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur. Magna id lobortis
-                      sagittis massa morbi id hac id dui. Nulla a suspendisse
-                      consectetur dui pharetra tellus diam ultrices dolor.
-                    </p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Grid>
-        </section>
-        <section className='experienceContainer'>
-          <ThemeProvider theme={mytheme}>
-            <Grid fluid>
+      </section>
+      <section className='benefitContainer'>
+        <Grid>
+          <Row>
+            <Col
+              xs={12}
+              md={4}
+            >
+              <Title text={'FÖRDELARNA'} />
+              <h2 className='benefitsIntro'>
+                I decennier har vi tillhandahållit tjänster till små och stora
+                företag.
+              </h2>
+            </Col>
+            <Col
+              xs={12}
+              md={8}
+            >
               <Row>
                 <Col
                   xs={12}
                   md={6}
                 >
-                  <Image src={experience} />
+                  <div className='benefitIconContainer'>
+                    <Image src={workIcon} />
+                  </div>
+                  <h2>A wide range of services</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor.
+                  </p>
                 </Col>
                 <Col
                   xs={12}
                   md={6}
                 >
-                  <div className='experienceTextWraper'>
-                    <Title text={'LÅNG ERFARENHET AV ENTREPRENÖRSKAP'} />
-
-                    <h2>Solutions for Commercial & Residential Buildings</h2>
-                    <p>
-                      At Friis Eli, we understand that a reliable electrical
-                      system is the lifeblood of your business. Whether you're a
-                      big corporation or a small enterprise, our dedicated team
-                      of expert electricians is here to ensure your operations
-                      run seamlessly. Discover the spark that sets us apart!
-                    </p>
-                    <ButtonQuote background={theme.colors.primaryColor}>
-                      Begär offert
-                    </ButtonQuote>
+                  <div className='benefitIconContainer'>
+                    <Image src={shieldIcon} />
                   </div>
+                  <h2>A wide range of services</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor.
+                  </p>
+                </Col>
+                <Col
+                  xs={12}
+                  md={6}
+                >
+                  <div className='benefitIconContainer'>
+                    <Image src={userIcon} />
+                  </div>
+                  <h2>A wide range of services</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor.
+                  </p>
+                </Col>
+                <Col
+                  xs={12}
+                  md={6}
+                >
+                  <div className='benefitIconContainer'>
+                    <Image src={chartIcon} />
+                  </div>
+                  <h2>A wide range of services</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor.
+                  </p>
                 </Col>
               </Row>
-            </Grid>
-          </ThemeProvider>
-        </section>
-      </div>
+            </Col>
+          </Row>
+        </Grid>
+      </section>
+      <section className='experienceContainer'>
+        <ThemeProvider theme={mytheme}>
+          <Grid fluid>
+            <Row className='experienceRowContainer'>
+              <Col
+                xs={12}
+                md={6}
+                className='experienceIMGContainer'
+              >
+                <Image
+                  src={experience}
+                  className='experienceIMG'
+                />
+              </Col>
+              <Col
+                xs={12}
+                md={6}
+              >
+                <div className='experienceTextWraper'>
+                  <Title text={'LÅNG ERFARENHET AV ENTREPRENÖRSKAP'} />
+
+                  <h2>Solutions for Commercial & Residential Buildings</h2>
+                  <p>
+                    At Friis Eli, we understand that a reliable electrical
+                    system is the lifeblood of your business. Whether you're a
+                    big corporation or a small enterprise, our dedicated team of
+                    expert electricians is here to ensure your operations run
+                    seamlessly. Discover the spark that sets us apart!
+                  </p>
+                  <ButtonQuote background={theme.colors.primaryColor}>
+                    Begär offert
+                  </ButtonQuote>
+                </div>
+              </Col>
+            </Row>
+          </Grid>
+        </ThemeProvider>
+      </section>
 
       <style jsx>{`
         //prettier-ignore
@@ -243,85 +254,13 @@ export default function Om() {
           }
         }
 
-        .solutionTextWraper {
-          height: 100%;
-          width: 80%;
-          margin: auto;
-          display: flex;
-          flex-direction: column;
-          align-items: start;
-          justify-content: center;
-          h2 {
-            font-weight: bold;
-            font-size: 38px;
-            margin: 15px 0;
-
+        .solutionContainer {
+          :global(.solutionTitle) {
             @include mobile {
-              text-align: center;
+              margin: auto;
             }
           }
-
-          p {
-            color: #000000;
-            margin-bottom: 25px;
-            @include mobile {
-              text-align: center;
-            }
-          }
-        }
-
-        .solutionImageContainer {
-          padding-top: 20px;
-          display: flex;
-          justify-content: center;
-        }
-        :global(.solutionImage) {
-          @include mobile {
-            margin: 0 auto;
-            width: 350px !important;
-          }
-        }
-
-        .main {
-        }
-
-        .benefitContainer {
-          margin: 50px 0;
-          padding: 50px 50px 50px 0;
-          background-color: #f9f9fb;
-
-          h2 {
-            font-sixe: 26px;
-            font-weight: bold;
-            margin: 10px 0;
-          }
-
-          p {
-            font-sixe: 18px;
-            margin-bottom: 10px;
-          }
-
-          .benefitsIntro {
-            font-size: 48px;
-            line-height: 60px;
-          }
-
-          .benefitIconContainer {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fce5c4;
-            border-radius: 5px;
-          }
-        }
-
-        .experienceContainer {
-          margin: 50px 0;
-          padding: 50px 0;
-
-          .experienceTextWraper {
+          .solutionTextWraper {
             height: 100%;
             width: 80%;
             margin: auto;
@@ -345,6 +284,129 @@ export default function Om() {
               @include mobile {
                 text-align: center;
               }
+            }
+            @include mobile {
+              align-items: center;
+              margin-top: 50px;
+            }
+          }
+
+          .solutionImageContainer {
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+          }
+          :global(.solutionImage) {
+            @include mobile {
+              margin: 0 auto;
+              width: 350px !important;
+            }
+          }
+          :global(.solutionColumnReverce) {
+            @include mobile {
+              flex-direction: column-reverse;
+            }
+          }
+
+          @include mobile {
+          }
+        }
+
+        .benefitContainer {
+          margin: 50px 0;
+          padding: 50px 50px 50px 0;
+          background-color: #f9f9fb;
+
+          h2 {
+            font-sixe: 26px;
+            font-weight: bold;
+            margin: 10px 0;
+          }
+
+          p {
+            font-sixe: 18px;
+            margin-bottom: 10px;
+          }
+
+          .benefitsIntro {
+            font-size: 48px;
+            line-height: 60px;
+
+            @include mobile {
+              font-size: 35px;
+              line-height: 40px;
+            }
+          }
+
+          .benefitIconContainer {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fce5c4;
+            border-radius: 5px;
+
+            @include mobile {
+              margin-top: 15px;
+            }
+          }
+        }
+
+        .experienceContainer {
+          margin: 50px 0;
+          padding: 50px 0;
+
+          :global(.experienceRowContainer) {
+            @include mobile {
+              flex-direction: column-reverse;
+            }
+          }
+
+          :global(.experienceIMGContainer) {
+            @include mobile {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-top: 20px;
+            }
+          }
+          :global(.experienceIMG) {
+            @include mobile {
+              width: 90%;
+              height: auto;
+              margin: auto;
+            }
+          }
+
+          .experienceTextWraper {
+            height: 100%;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            h2 {
+              font-weight: bold;
+              font-size: 38px;
+              margin: 15px 0;
+
+              @include mobile {
+                text-align: left;
+              }
+            }
+
+            p {
+              color: #000000;
+              margin-bottom: 25px;
+              @include mobile {
+                text-align: left;
+              }
+            }
+
+            @include mobile {
+              width: 90%;
             }
           }
         }
