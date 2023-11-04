@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 const Form = () => {
-  const [isCustomer, setCustomer] = useState('');
+  const [isCustomer, setCustomer] = useState('ja');
   return (
     <>
       <div>

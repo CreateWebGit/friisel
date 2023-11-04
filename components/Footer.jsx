@@ -88,7 +88,7 @@ const Footer = () => {
         <div className='topLeftWrapper'>
           <h2>Få en gratis konsultation</h2>
           <p>Vi är alltid redo att hjälpa dig.</p>
-          <ButtonQuote>Be om offert</ButtonQuote>
+          <ButtonQuote>Begär offert</ButtonQuote>
         </div>
         <div className='topRightWrapper'>
           <Image
@@ -207,12 +207,12 @@ const Footer = () => {
         }
         .topWrapper {
           width: 100%;
-          height: 300px;
+          height: 250px;
           display: flex;
           overflow: hidden;
           .topLeftWrapper {
             width: 50%;
-            padding: 50px 0px 20px 120px;
+            padding: 64px 0px 20px 120px;
             background-color: ${theme.colors.primaryColor};
             h2 {
               font-size: 40px;
@@ -221,7 +221,7 @@ const Footer = () => {
 
             p {
               font-size: 16px;
-              margin: 15px 0 80px 0;
+              margin: 15px 0 30px 0;
               color: #fff;
             }
           }

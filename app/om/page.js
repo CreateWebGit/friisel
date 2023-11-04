@@ -372,6 +372,7 @@ export default function Om() {
             }
           }
           :global(.experienceIMG) {
+            border-radius: 10px;
             @include mobile {
               width: 90%;
               height: auto;

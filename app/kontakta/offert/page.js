@@ -9,6 +9,7 @@ import theme from './../../../styles/theme';
 import { ThemeProvider } from 'styled-components';
 import bg from '../../../public/images/offert/bgMeter.jpg';
 import Form from '../../../components/Form';
+import Title from '../../../components/Title';
 
 const mytheme = {
   flexboxgrid: {
@@ -43,6 +44,7 @@ export default function Om() {
         backgroundUrl='../images/offert/head.jpg'
         placement='top'
         filter={'rgba(0, 0, 0, 0.6)'}
+        height={'80vh'}
       >
         <Navbar mypath={path} />
         <div className='heroWrapper'>
@@ -52,6 +54,11 @@ export default function Om() {
       <div className='main'>
         <ThemeProvider theme={mytheme}>
           <Grid>
+            <Title
+              className='solutionTitle'
+              text={'OFFERT'}
+            />
+
             <h1>Begär kostnadsfri offert</h1>
             <p>
               Vårt erfarna team är alltid redo att hjälpa dig med dina elbehov
@@ -93,6 +100,7 @@ export default function Om() {
           padding: 80px 0;
           h1 {
             font-size: 34px;
+            margin-top: 10px;
           }
 
           p {
@@ -122,7 +130,8 @@ export default function Om() {
         .formWrapper {
           margin: 50px 50px;
           padding: 50px;
-          background-color: rgba(255, 255, 255, 0.8);
+          background-color: #fff;
+          opacity: 0.9;
           display: inline-block;
         }
       `}</style>
