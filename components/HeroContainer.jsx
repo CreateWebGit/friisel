@@ -13,6 +13,12 @@ const HeroContainer = ({
         <div className='filter'>{children}</div>
       </div>
       <style jsx>{`
+        //prettier-ignore
+        @mixin mobile {
+          @media (max-width: 850px) {
+            @content
+          }
+        }
         .filter {
           width: 100%;
           display: flex;
@@ -22,12 +28,17 @@ const HeroContainer = ({
 
           background-color: ${filter};
           z-index: 999;
+          @include mobile {
+            align-items: center;
+          }
         }
         .container {
           height: ${height};
           background: url(${backgroundUrl}) no-repeat ${placement} center;
           background-size: cover;
           z-index: 99;
+          @include mobile {
+          }
         }
       `}</style>
     </>

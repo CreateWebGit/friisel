@@ -16,7 +16,7 @@ const mytheme = {
     // Defaults
     gridSize: 12, // columns
     gutterWidth: 1, // rem
-    outerMargin: 0, // rem
+    outerMargin: 2, // rem
     mediaQuery: 'only screen',
     container: {
       sm: 46, // rem
@@ -83,6 +83,17 @@ export default function Om() {
       </div>
 
       <style jsx>{`
+        //prettier-ignore
+        @mixin mobile {
+          @media (max-width: 850px) {
+            @content
+          }
+        }
+
+        .main {
+          padding: 0 50px;
+        }
+
         .heroWrapper {
           width: 100%;
           height: 50vh;
@@ -93,6 +104,9 @@ export default function Om() {
           h1 {
             font-size: 120px;
             color: #fff;
+            @include mobile {
+              font-size: 60px;
+            }
           }
         }
 
