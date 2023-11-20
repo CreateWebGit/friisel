@@ -109,7 +109,10 @@ export default function Home({ data }) {
                 md={6}
               >
                 <div className='solutionTextWraper'>
-                  <Title text={'OM OSS'} />
+                  <Title
+                    className='solutionTitle'
+                    text={'OM OSS'}
+                  />
 
                   <h2>Lösningar för kommersiella och bostadsbyggnader</h2>
                   <p>
@@ -123,7 +126,10 @@ export default function Home({ data }) {
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo
                     consequat.
                   </p>
-                  <ButtonQuote background={theme.colors.primaryColor}>
+                  <ButtonQuote
+                    className='solutionButton'
+                    background={theme.colors.primaryColor}
+                  >
                     Begär offert
                   </ButtonQuote>
                 </div>
@@ -455,6 +461,10 @@ export default function Home({ data }) {
                 text-align: center;
               }
             }
+
+            @include mobile {
+              align-items: center;
+            }
           }
 
           .solutionImageContainer {
@@ -465,7 +475,8 @@ export default function Home({ data }) {
           :global(.solutionImage) {
             @include mobile {
               margin: 0 auto;
-              width: 350px !important;
+              width: 90% !important;
+              height: auto;
             }
           }
 
@@ -544,6 +555,8 @@ export default function Home({ data }) {
             background-attachment: fixed;
             background-position: top;
             background-size: cover;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
           }
 
           .sloganContainerFilter {
