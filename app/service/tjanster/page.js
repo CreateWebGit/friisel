@@ -272,9 +272,12 @@ export default function Om() {
         }
 
         .heroTextWrapper {
-          margin-top: 200px;
           color: #fff;
           width: 500px;
+
+          @include mobile {
+            width: 100%;
+          }
 
           h4 {
             font-size: 18px;
@@ -287,11 +290,18 @@ export default function Om() {
             font-weight: bold;
             line-height: 50px;
             margin-bottom: 10px;
+            @include mobile {
+              font-size: 28px;
+              line-height: 30px;
+            }
           }
 
           h2 {
             font-size: 22px;
             margin-bottom: 30px;
+            @include mobile {
+              font-size: 22px;
+            }
           }
 
           .heroButtonWrapper {

@@ -106,7 +106,10 @@ export default function Om() {
                 md={6}
               >
                 <div className='solutionImageContainer'>
-                  <Image src={about1} />
+                  <Image
+                    className='solutionImage'
+                    src={about1}
+                  />
                 </div>
               </Col>
             </Row>
@@ -116,7 +119,10 @@ export default function Om() {
                 md={6}
               >
                 <div className='solutionImageContainer'>
-                  <Image src={about2} />
+                  <Image
+                    className='solutionImage'
+                    src={about2}
+                  />
                 </div>
               </Col>
               <Col
@@ -277,9 +283,12 @@ export default function Om() {
         }
 
         .heroTextWrapper {
-          margin-top: 200px;
           color: #fff;
           width: 500px;
+
+          @include mobile {
+            width: 100%;
+          }
 
           h4 {
             font-size: 18px;
@@ -292,11 +301,18 @@ export default function Om() {
             font-weight: bold;
             line-height: 50px;
             margin-bottom: 10px;
+            @include mobile {
+              font-size: 28px;
+              line-height: 30px;
+            }
           }
 
           h2 {
             font-size: 22px;
             margin-bottom: 30px;
+            @include mobile {
+              font-size: 22px;
+            }
           }
 
           .heroButtonWrapper {
@@ -312,6 +328,7 @@ export default function Om() {
               margin: auto;
             }
           }
+
           .solutionTextWraper {
             height: 100%;
             width: 80%;
@@ -352,6 +369,7 @@ export default function Om() {
             @include mobile {
               margin: 0 auto;
               width: 350px !important;
+              height: auto;
             }
           }
           :global(.solutionColumnReverce) {
