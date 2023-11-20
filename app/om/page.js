@@ -50,10 +50,26 @@ export default function Om() {
       <HeroContainer
         backgroundUrl='../images/about/aboutHead.jpg'
         placement='top'
-        filter={'rgba(0, 0, 0, 0.2)'}
-        height={'80vh'}
+        filter={'rgba(0, 0, 0, 0.4)'}
+        height={'85vh'}
       >
         <Navbar mypath={path} />
+        <Grid>
+          <div className='heroTextWrapper'>
+            <h4>Lång Erfarenhet av Stora Projekt</h4>
+            <h1>Vår story: Engagerad i spetskompetens</h1>
+            <h2>
+              Friis EL har varit ett pålitligt namn inom elbranschen i 10+ år.
+              Vi är stolta över vårt engagemang för kvalitet, säkerhet och
+              kundnöjdhet
+            </h2>
+            <div className='heroButtonWrapper'>
+              <ButtonQuote background={theme.colors.primaryColor}>
+                Begär offert
+              </ButtonQuote>
+            </div>
+          </div>
+        </Grid>
       </HeroContainer>
 
       <section className='solutionContainer'>
@@ -70,13 +86,15 @@ export default function Om() {
                     text={'OM OSS'}
                   />
 
-                  <h2>Solutions for Commercial & Residential Buildings</h2>
+                  <h2>
+                    Vi tillhandahåller innovativa ellösningar till företag
+                  </h2>
                   <p>
-                    At Friis Eli, we understand that a reliable electrical
-                    system is the lifeblood of your business. Whether you're a
-                    big corporation or a small enterprise, our dedicated team of
-                    expert electricians is here to ensure your operations run
-                    seamlessly. Discover the spark that sets us apart!
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Urna
+                    morbi sapien enim pulvinar laoreet in. Lobortis ut morbi sit
+                    proin commodo urna. Convallis feugiat in hac non turpis.
                   </p>
                   <ButtonQuote background={theme.colors.primaryColor}>
                     Begär offert
@@ -111,13 +129,13 @@ export default function Om() {
                     text={'OM OSS'}
                   />
 
-                  <h2>Solutions for Commercial & Residential Buildings</h2>
+                  <h2>Lösningar för kommersiella och bostadsbyggnader</h2>
                   <p>
-                    At Friis Eli, we understand that a reliable electrical
-                    system is the lifeblood of your business. Whether you're a
-                    big corporation or a small enterprise, our dedicated team of
-                    expert electricians is here to ensure your operations run
-                    seamlessly. Discover the spark that sets us apart!
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Urna
+                    morbi sapien enim pulvinar laoreet in. Lobortis ut morbi sit
+                    proin commodo urna. Convallis feugiat in hac non turpis.
                   </p>
                   <ButtonQuote background={theme.colors.primaryColor}>
                     Begär offert
@@ -153,7 +171,7 @@ export default function Om() {
                   <div className='benefitIconContainer'>
                     <Image src={workIcon} />
                   </div>
-                  <h2>A wide range of services</h2>
+                  <h2>Ett brett utbud av tjänster</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                     sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -167,7 +185,7 @@ export default function Om() {
                   <div className='benefitIconContainer'>
                     <Image src={shieldIcon} />
                   </div>
-                  <h2>A wide range of services</h2>
+                  <h2>Toppkvalitet till bästa pris</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                     sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -181,7 +199,7 @@ export default function Om() {
                   <div className='benefitIconContainer'>
                     <Image src={userIcon} />
                   </div>
-                  <h2>A wide range of services</h2>
+                  <h2>Ett team av proffs</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                     sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -195,7 +213,7 @@ export default function Om() {
                   <div className='benefitIconContainer'>
                     <Image src={chartIcon} />
                   </div>
-                  <h2>A wide range of services</h2>
+                  <h2>Engagemang för framgång</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                     sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -228,13 +246,17 @@ export default function Om() {
                 <div className='experienceTextWraper'>
                   <Title text={'LÅNG ERFARENHET AV ENTREPRENÖRSKAP'} />
 
-                  <h2>Solutions for Commercial & Residential Buildings</h2>
+                  <h2>Lösningar för kommersiella och bostadsbyggnader</h2>
                   <p>
-                    At Friis Eli, we understand that a reliable electrical
-                    system is the lifeblood of your business. Whether you're a
-                    big corporation or a small enterprise, our dedicated team of
-                    expert electricians is here to ensure your operations run
-                    seamlessly. Discover the spark that sets us apart!
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui. Nulla a suspendisse consectetur
+                    dui pharetra tellus diam ultrices dolor. Lorem ipsum dolor
+                    sit amet consectetur. Magna id lobortis sagittis massa morbi
+                    id hac id dui. Nulla a suspendisse consectetur dui pharetra
+                    tellus diam ultrices dolor.
                   </p>
                   <ButtonQuote background={theme.colors.primaryColor}>
                     Begär offert
@@ -251,6 +273,36 @@ export default function Om() {
         @mixin mobile {
           @media (max-width: 850px) {
             @content
+          }
+        }
+
+        .heroTextWrapper {
+          margin-top: 200px;
+          color: #fff;
+          width: 500px;
+
+          h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+
+          h1 {
+            font-family: 'Dosis', sans-serif !important;
+            font-size: 38px;
+            font-weight: bold;
+            line-height: 50px;
+            margin-bottom: 10px;
+          }
+
+          h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+          }
+
+          .heroButtonWrapper {
+            width: 320px;
+            display: flex;
+            justify-content: space-between;
           }
         }
 
@@ -372,7 +424,8 @@ export default function Om() {
             }
           }
           :global(.experienceIMG) {
-            border-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
             @include mobile {
               width: 90%;
               height: auto;

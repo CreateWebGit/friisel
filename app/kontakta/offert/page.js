@@ -128,6 +128,7 @@ export default function Om() {
         }
 
         .formWrapper {
+          width: 70%;
           margin: 50px 50px;
           padding: 50px;
           background-color: #fff;

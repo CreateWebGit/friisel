@@ -25,6 +25,12 @@ const ButtonQuote = ({ children, onClick, background }) => {
           color: #fff;
           font-size: 18px;
           cursor: pointer;
+          :global(Link) {
+            a {
+              color: #fff;
+              text-decoration: none;
+            }
+          }
         }
 
         :global(.icon) {

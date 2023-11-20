@@ -6,6 +6,20 @@ v2.0 | 20110126
 License: none (public domain)
 */
 
+  @font-face: {
+    font-family: 'Unbounded' !important;
+    src: url(../public/images/static/Unbounded-Regular.ttf);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Dosis', sans-serif !important;
+  }
+
   html,
   body,
   div,

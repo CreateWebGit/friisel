@@ -52,10 +52,25 @@ export default function Om() {
         backgroundUrl='../images/entreprenor/hero.png'
         placement='top'
         filter={'rgba(0, 0, 0, 0.4)'}
-        height={'80vh'}
+        height={'85vh'}
       >
         <Navbar mypath={path} />
-        <div className='heroWrapper'></div>
+        <Grid>
+          <div className='heroTextWrapper'>
+            <h4>Lång Erfarenhet av Stora Projekt</h4>
+            <h1>Effektiviserade lösningar & problemfria tjänster</h1>
+            <h2>
+              Friis EL har varit ett pålitligt namn inom elbranschen i 10+ år.
+              Vi är stolta över vårt engagemang för kvalitet, säkerhet och
+              kundnöjdhet
+            </h2>
+            <div className='heroButtonWrapper'>
+              <ButtonQuote background={theme.colors.primaryColor}>
+                Begär offert
+              </ButtonQuote>
+            </div>
+          </div>
+        </Grid>
       </HeroContainer>
 
       <section className='customersContainer'>
@@ -71,11 +86,12 @@ export default function Om() {
                 Det här är några stora företag vi har som samarbetspartner
               </h2>
               <p>
-                At Friis Eli, we understand that a reliable electrical system is
-                the lifeblood of your business. Whether you're a big corporation
-                or a small enterprise, our dedicated team of expert electricians
-                is here to ensure your operations run seamlessly. Discover the
-                spark that sets us apart!
+                Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                sagittis massa morbi id hac id dui. Nulla a suspendisse
+                consectetur dui pharetra tellus diam ultrices dolor. Lorem ipsum
+                dolor sit amet consectetur. Magna id lobortis sagittis massa
+                morbi id hac id dui. Nulla a suspendisse consectetur dui
+                pharetra tellus diam ultrices dolor.
               </p>
             </div>
 
@@ -93,9 +109,11 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
@@ -112,9 +130,11 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
@@ -131,9 +151,11 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
@@ -150,9 +172,11 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
@@ -169,9 +193,11 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
@@ -188,14 +214,17 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
               <Col
                 xs={12}
+                mdOffset={2}
                 md={4}
               >
                 <div className='customerCard'>
@@ -207,9 +236,11 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
                 </div>
               </Col>
@@ -226,18 +257,12 @@ export default function Om() {
                     />
                   </div>
                   <p>
-                    Friis EL has been a trusted name in the electrical industry
-                    for 9+ years. We take pride in our dedication to quality,
-                    safety, and customer satisfaction
+                    Lorem ipsum dolor sit amet consectetur. Magna id lobortis
+                    sagittis massa morbi id hac id dui. Nulla a suspendisse
+                    consectetur dui pharetra tellus diam ultrices dolor. Lorem
+                    ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+                    massa morbi id hac id dui.
                   </p>
-                </div>
-              </Col>
-              <Col
-                xs={12}
-                md={4}
-              >
-                <div className='customerCard'>
-                  <h2>Kontakta oss</h2>
                 </div>
               </Col>
             </Row>
@@ -252,16 +277,33 @@ export default function Om() {
             @content
           }
         }
-        .heroWrapper {
-          width: 100%;
-          height: 50vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .heroTextWrapper {
+          margin-top: 200px;
+          color: #fff;
+          width: 500px;
+
+          h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
 
           h1 {
-            font-size: 120px;
-            color: #fff;
+            font-family: 'Dosis', sans-serif !important;
+            font-size: 38px;
+            font-weight: bold;
+            line-height: 50px;
+            margin-bottom: 10px;
+          }
+
+          h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+          }
+
+          .heroButtonWrapper {
+            width: 320px;
+            display: flex;
+            justify-content: space-between;
           }
         }
 

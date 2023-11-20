@@ -32,7 +32,7 @@ export const navLinks = [
   {
     id: 2,
     name: 'Service',
-    path: '/service',
+    path: '#',
     sublinks1: [
       {
         id: 1,
@@ -503,7 +503,7 @@ const Navbar = ({ mypath }) => {
                   className='contactIcon'
                   color='#F49A11'
                 />
-                <span> 123-456-789 </span>
+                <span> 08 - 64 09 920 </span>
               </div>
             </div>
             <div className='socialContent'>
@@ -536,7 +536,13 @@ const Navbar = ({ mypath }) => {
               </div>
               <div className='buttonQuoteContainer'>
                 <ButtonQuote background={theme.colors.primaryColor}>
-                  Begär offert
+                  <Link
+                    passHref
+                    legacyBehavior
+                    href={'/kontakta/offert'}
+                  >
+                    <a className='testtt'>Begär offert</a>
+                  </Link>
                 </ButtonQuote>
               </div>
             </div>
@@ -610,6 +616,14 @@ const Navbar = ({ mypath }) => {
         @mixin mobile {
           @media (max-width: $mobile) {
             @content
+          }
+        }
+
+        :global(.testtt) {
+          color: #fff !important;
+          text-decoration: none;
+          a {
+            color: #fff !important;
           }
         }
 

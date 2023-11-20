@@ -59,7 +59,25 @@ export default function Om() {
         height={'80vh'}
       >
         <Navbar mypath={path} />
-        <div className='heroWrapper'></div>
+        <Grid>
+          <div className='heroTextWrapper'>
+            <h4>Lång Erfarenhet av Stora Projekt</h4>
+            <h1>
+              Vi tillhandahåller lösningar även till små företag och
+              privatpersoner
+            </h1>
+            <h2>
+              Friis EL har varit ett pålitligt namn inom elbranschen i 10+ år.
+              Vi är stolta över vårt engagemang för kvalitet, säkerhet och
+              kundnöjdhet
+            </h2>
+            <div className='heroButtonWrapper'>
+              <ButtonQuote background={theme.colors.primaryColor}>
+                Begär offert
+              </ButtonQuote>
+            </div>
+          </div>
+        </Grid>
       </HeroContainer>
       <section className='benefitContainer'>
         <ThemeProvider theme={mytheme}>
@@ -72,7 +90,7 @@ export default function Om() {
                 <div className='benefitTitleWrapper'>
                   <Title text={'OM OSS'} />
                   <h2>
-                    Fördelarna i att <br /> anlita oss
+                    Fördelarna med att <br /> anlita oss
                   </h2>
                 </div>
               </Col>
@@ -103,7 +121,7 @@ export default function Om() {
             >
               <div className='card'>
                 <Image src={tjanst1} />
-                <h3>Fast Work Solutions</h3>
+                <h3>Flexibla lösningar</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                   sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -117,7 +135,7 @@ export default function Om() {
             >
               <div className='card'>
                 <Image src={tjanst2} />
-                <h3>Fast Work Solutions</h3>
+                <h3>Fantastisk support</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                   sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -131,7 +149,7 @@ export default function Om() {
             >
               <div className='card'>
                 <Image src={tjanst3} />
-                <h3>Fast Work Solutions</h3>
+                <h3>Tillgängliga 24 / 7</h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                   sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -175,7 +193,7 @@ export default function Om() {
                     <div className='iconContainer'>
                       <Image src={skyline} />
                     </div>
-                    <h3>Titel text</h3>
+                    <h3>Komplexa elinstallationer</h3>
                     <p>
                       Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                       sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -191,7 +209,7 @@ export default function Om() {
                     <div className='iconContainer'>
                       <Image src={skyline} />
                     </div>
-                    <h3>Titel text</h3>
+                    <h3>Upprättande av rutinunderhåll</h3>
                     <p>
                       Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                       sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -207,7 +225,7 @@ export default function Om() {
                     <div className='iconContainer'>
                       <Image src={skyline} />
                     </div>
-                    <h3>Titel text</h3>
+                    <h3>Energieffektiva lösningar</h3>
                     <p>
                       Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                       sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -223,7 +241,7 @@ export default function Om() {
                     <div className='iconContainer'>
                       <Image src={skyline} />
                     </div>
-                    <h3>Titel text</h3>
+                    <h3>Elpanel installationer</h3>
                     <p>
                       Lorem ipsum dolor sit amet consectetur. Magna id lobortis
                       sagittis massa morbi id hac id dui. Nulla a suspendisse
@@ -252,16 +270,34 @@ export default function Om() {
             @content
           }
         }
-        .heroWrapper {
-          width: 100%;
-          height: 50vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+
+        .heroTextWrapper {
+          margin-top: 200px;
+          color: #fff;
+          width: 500px;
+
+          h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
 
           h1 {
-            font-size: 120px;
-            color: #fff;
+            font-family: 'Dosis', sans-serif !important;
+            font-size: 38px;
+            font-weight: bold;
+            line-height: 50px;
+            margin-bottom: 10px;
+          }
+
+          h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+          }
+
+          .heroButtonWrapper {
+            width: 320px;
+            display: flex;
+            justify-content: space-between;
           }
         }
 
@@ -376,7 +412,7 @@ export default function Om() {
               border-radius: 50%;
             }
             h3 {
-              font-size: 32px;
+              font-size: 24px;
               font-weight: bold;
               margin: 10px 0;
             }

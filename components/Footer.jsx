@@ -111,8 +111,8 @@ const Footer = () => {
                   width={120}
                 />
                 <p>
-                  At Friis Eli, we understand that a reliable electrical system
-                  is the lifeblood of your business.
+                  På Friis EL förstår vi att pålitliga elsystem är livsnerven i
+                  ditt företag.
                 </p>
                 <div className='contactContent'>
                   <div className='contactItem'>
@@ -177,22 +177,11 @@ const Footer = () => {
             <Row>
               <Col
                 xs={12}
-                md={6}
+                md={12}
               >
                 <p className='rightWrapper'>
                   All rights reserved @ friisel.com
                 </p>
-              </Col>
-
-              <Col
-                xs={12}
-                md={6}
-              >
-                <div className='policyWrapper'>
-                  <div className='policyItems'>Terms & Conditions</div>
-                  <div className='policyItems'>Claim</div>
-                  <div className='policyItems'>Privacy Policy</div>
-                </div>
               </Col>
             </Row>
           </Grid>
@@ -300,7 +289,8 @@ const Footer = () => {
         }
 
         .rightWrapper {
-          margin: 0px !important;
+          width: 100%;
+          margin: 0px auto !important;
 
           @include mobile {
             text-align: center !important;
