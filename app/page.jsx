@@ -559,6 +559,12 @@ export default function Home({ data }) {
             -webkit-transform: translate3d(0, 0, 0);
           }
 
+          @media (hover: none) {
+            .sloganContainer {
+              background-attachment: initial;
+            }
+          }
+
           .sloganContainerFilter {
             background-color: rgba(0, 0, 0, 0.3);
             height: 100%;
