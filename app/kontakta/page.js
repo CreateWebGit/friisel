@@ -77,9 +77,10 @@ export default function Om() {
           <Grid>
             <h2>Vi är här för att hjälpa dig</h2>
             <p>
-              Friis EL har varit ett pålitligt namn inom elbranschen i 9+ år. Vi
-              är stolta över vårt engagemang för kvalitet, säkerhet och
-              kundnöjdhet
+              Lorem ipsum dolor sit amet consectetur. Magna id lobortis sagittis
+              massa morbi id hac id dui. Nulla a suspendisse consectetur dui
+              pharetra tellus diam ultrices dolor. Lorem ipsum dolor sit amet
+              consectetur. Magna id lobortis sagittis massa morbi id hac id dui.
             </p>
 
             <Row>
@@ -186,6 +187,7 @@ export default function Om() {
           h2 {
             font-size: 34px;
             text-align: center;
+            margin-bottom: 20px;
           }
 
           p {
@@ -218,6 +220,9 @@ export default function Om() {
               background-color: #fce5c4;
               border-radius: 50%;
             }
+          }
+          @include mobile {
+            padding: 50px 50px;
           }
         }
 

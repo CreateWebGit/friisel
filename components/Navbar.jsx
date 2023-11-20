@@ -327,23 +327,27 @@ export const NavigationMobile = () => {
                     onMouseLeave={() => setSublinks('')}
                   >
                     <div className='links'>
-                      <li>
+                      <ul>
+                        <li>
+                          <Link
+                            legacyBehavior
+                            key={link.id}
+                            href={link.path}
+                          >
+                            <a>{link.name}</a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div className='offertLink'>
                         <Link
                           legacyBehavior
-                          key={link.id}
-                          href={link.path}
+                          href={'/kontakta/offert'}
                         >
-                          <a>{link.name}</a>
+                          <a>Offert</a>
                         </Link>
-                      </li>
-                    </div>
-                    <div className='offertLink'>
-                      <Link
-                        legacyBehavior
-                        href={'/kontakta/offert'}
-                      >
-                        <a>Offert</a>
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -393,7 +397,7 @@ export const NavigationMobile = () => {
                     text-decoration: none;
                     color: #333;
                   }
-                  a:before {
+                  a:after {
                     content: '';
                     position: absolute;
                     width: 100%;
@@ -411,26 +415,12 @@ export const NavigationMobile = () => {
               }
               .offertLink {
                 margin: 8px 6px;
-
+                position: relative;
                 font-size: 24px;
                 curser: pointer;
                 a {
                   text-decoration: none;
                   color: #333;
-                }
-                a:before {
-                  content: '';
-                  position: absolute;
-                  width: 100%;
-                  height: 2px;
-
-                  bottom: -5px;
-                  left: 0;
-                  background-color: #f49a11;
-                  transform: ${pathname === link.path
-                    ? 'scaleY(1)'
-                    : 'scaleY(0)'};
-                  transition: transform 0.3s ease;
                 }
               }
               .subLinksConatner {

@@ -24,7 +24,7 @@ const mytheme = {
     // Defaults
     gridSize: 12, // columns
     gutterWidth: 1, // rem
-    outerMargin: 0, // rem
+    outerMargin: 1, // rem
     mediaQuery: 'only screen',
     container: {
       sm: 46, // rem
@@ -277,6 +277,9 @@ export default function Om() {
             @content
           }
         }
+        .container {
+        }
+
         .heroTextWrapper {
           color: #fff;
           width: 500px;
@@ -347,6 +350,8 @@ export default function Om() {
             @include mobile {
               align-items: center;
               margin-top: 50px;
+              padding: 30px 0px;
+              width: 90%;
             }
           }
 

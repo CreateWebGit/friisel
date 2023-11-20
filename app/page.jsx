@@ -390,7 +390,6 @@ export default function Home({ data }) {
             @content
           }
         }
-
           .heroTextWrapper {
             color: #fff;
             width: 500px;
@@ -557,6 +556,9 @@ export default function Home({ data }) {
             background-size: cover;
             transform: translate3d(0, 0, 0);
             -webkit-transform: translate3d(0, 0, 0);
+            @include mobile {
+              display: none;
+            }
           }
 
           @media (hover: none) {
