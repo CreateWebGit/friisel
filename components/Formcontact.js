@@ -191,12 +191,9 @@ const Formcontact = () => {
           width: 100%;
           position: relative;
           margin-bottom: 50px;
-
           input[type='text'],
           input[type='email'],
           textarea {
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
             background-color: #fff;
             margin-right: 0px;
             webkit-appearance: none;
