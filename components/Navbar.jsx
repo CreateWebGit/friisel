@@ -493,7 +493,7 @@ const Navbar = ({ mypath }) => {
                   className='contactIcon'
                   color='#F49A11'
                 />
-                <span> 08 - 64 09 920 </span>
+                <span> 08 - 640 99 20 </span>
               </div>
             </div>
             <div className='socialContent'>

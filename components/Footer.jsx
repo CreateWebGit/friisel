@@ -134,7 +134,7 @@ const Footer = () => {
                       className='contactIcon'
                       color='#F49A11'
                     />
-                    <span> 123-456-789 </span>
+                    <span> 08 - 640 99 20 </span>
                   </div>
                 </div>
               </Col>
