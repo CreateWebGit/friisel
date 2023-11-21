@@ -204,6 +204,7 @@ const Formcontact = () => {
             webkit-transition: all 0.2s ease-in-out;
             moz-transition: all 0.2s ease-in-out;
             transition: all 0.2s ease-in-out;
+            border: none;
             border-bottom: 1px solid #000;
             padding: 0.3em 0.5em 0.2em 0em;
             text-decoration: none;
