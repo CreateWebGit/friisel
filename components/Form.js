@@ -170,7 +170,6 @@ const Form = () => {
             width: 150px;
             margin: 20px 20px 0 0;
             background-color: #316aff;
-            border-radius: 15px;
             color: #fff;
             border: 1px solid #fff;
             float: right;

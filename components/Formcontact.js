@@ -178,7 +178,7 @@ const Formcontact = () => {
             position: realative;
 
             background-color: ${theme.colors.primaryColor};
-            border-radius: 15px;
+
             color: #fff;
             border: 0px solid #fff;
             float: right;
